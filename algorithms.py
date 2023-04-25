@@ -1,4 +1,4 @@
-def put_on_hat(count: int, iteration: int) -> int:
+def put_on_hat(count: int, iteration: int) -> list:
     arr_cats = [False for _ in range(count)]
     i = 0
     while i < iteration:
