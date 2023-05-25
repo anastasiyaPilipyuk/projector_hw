@@ -49,7 +49,7 @@ class Car(object):
 
 # Task 5 Create a robot class
 class Robot:
-    DIRECTIONS = ("North", "East", "South", "West")
+    DIRECTIONS = ("up", "left", "low", "right")
 
     def __init__(self, orientation, position_x, position_y):
         self.orientation = orientation
@@ -59,13 +59,13 @@ class Robot:
     # Why in construction case I can't use tuple like self.DIRECTIONS[0]?
     def move(self, num_of_steps: int):
         match self.orientation:
-            case "North":
+            case "up":
                 self.position_y += num_of_steps
-            case "South":
+            case "low":
                 self.position_y -= num_of_steps
-            case "East":
+            case "left":
                 self.position_x -= num_of_steps
-            case "West":
+            case "right":
                 self.position_x += num_of_steps
 
     def turn(self, direction):
@@ -80,7 +80,7 @@ class Robot:
         print(f"x: {self.position_x}, y: {self.position_y}")
 
 
-robot = Robot("North", 0, 0)
+robot = Robot("up", 0, 0)
 robot.move(3)
 assert robot.position_x == 0 and robot.position_y == 3
 robot.turn("right")
