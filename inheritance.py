@@ -15,7 +15,7 @@ class Book(Product):
         self.author = author
 
     def read(self):
-        pass
+        return f"Book {self.name} by {self.author} was read"
 
 
 # Task 2
