@@ -64,9 +64,8 @@ engine = create_engine(
 
 Session = sessionmaker(bind=engine)
 with Session() as session:
-    students_with_english_class = session.query(Student).join(StudentSubject).join(Subject).\
-                                filter(Subject.name == 'English').all()
+    students_with_english_class = session.query(Student).join(StudentSubject, Student.id == StudentSubject.student_id) \
+        .join(Subject, StudentSubject.subject_id == Subject.id). \
+        filter(Subject.name == 'English').all()
     for student in students_with_english_class:
         print(student.name)
-
-
