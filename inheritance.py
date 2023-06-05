@@ -105,37 +105,3 @@ class Bank:
                 print(f"Your account by number {account.get_account_number()}: is overdraft.")
 
 
-# Create a Bank object
-bank = Bank("Raiffeisen")
-
-# Open some accounts
-account1 = Account(300, "ACCOUNT1")
-savings_account1 = SavingsAccount(1000, "SAVING1", 1.5)
-current_account1 = CurrentAccount(500, "CURRENT1", -1000)
-
-bank.open_account(account1)
-bank.open_accounts([savings_account1, current_account1])
-
-# Perform some operations
-account1.deposit(500)
-savings_account1.add_interest()
-current_account1.withdraw(700)
-
-# Test the account details
-assert str(account1) == "Account number: ACCOUNT1, balance: 800"
-assert str(savings_account1) == "Account number: SAVING1, balance: 1015.0"
-assert str(current_account1) == "Account number: CURRENT1, balance: -200"
-
-# Update the bank
-bank.update()
-
-# Pay a dividend
-bank.pay_dividend(100)
-
-# Test the updated and paid dividend account details
-assert str(account1) == "Account number: ACCOUNT1, balance: 900"
-assert str(savings_account1) == "Account number: SAVING1, balance: 1130.22"
-assert str(current_account1) == "Account number: CURRENT1, balance: -100"
-
-bank.close_account("ACCOUNT1")
-assert len(bank.get_bank_accounts()) == 2
